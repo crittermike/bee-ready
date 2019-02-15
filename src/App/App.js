@@ -12,7 +12,7 @@ class App extends Component {
     };
     this.msg = new SpeechSynthesisUtterance();
     this.msg.volume = 1;
-    this.msg.rate = 1;
+    this.msg.rate = 0.7;
     this.msg.pitch = 1;
 
     window.speechSynthesis.onvoiceschanged = () => {
