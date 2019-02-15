@@ -31,7 +31,7 @@ class App extends Component {
 
   handleSubmit(event) {
     this.setState({
-      isCorrect: this.state.spellingGuess === this.state.randomWord
+      isCorrect: this.state.spellingGuess.toLowerCase() === this.state.randomWord.toLowerCase()
     });
     event.preventDefault();
     this.randomWord();
