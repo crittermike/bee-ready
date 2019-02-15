@@ -58,7 +58,7 @@ class App extends Component {
         <div className="app">
           {!this.state.randomWord && <button onClick={this.randomWord}>Start</button>}
           {this.state.randomWord && <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Spell the word here" onChange={this.handleChange} value={this.state.spellingGuess} />
+            <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Enter spelling" onChange={this.handleChange} value={this.state.spellingGuess} />
             <input type="submit" value="Done" />
           </form>}
           {this.state.randomWord && <button onClick={() => this.speak(this.state.randomWord)}>Repeat word</button>}<br />
