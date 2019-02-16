@@ -55,17 +55,17 @@ class App extends Component {
 
   render() {
     return (
-        <div className="app">
-          {!this.state.randomWord && <button onClick={this.randomWord}>Start</button>}
-          {this.state.randomWord && <form onSubmit={this.handleSubmit}>
-            <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Enter spelling" onChange={this.handleChange} value={this.state.spellingGuess} />
-            <input type="submit" value="Done" />
-          </form>}
-          {this.state.randomWord && <button onClick={() => this.speak(this.state.randomWord)}>Repeat word</button>}<br />
-          {this.state.previousWord && this.state.isCorrect && <h1 className="correct">Correct!</h1>}
-          {this.state.previousWord && !this.state.isCorrect && <h1 className="incorrect">Incorrect!</h1>}
-          {this.state.previousWord && <h3>Correct spelling: <strong>{this.state.previousWord}</strong></h3>}
-        </div>
+      <div className="app">
+        {!this.state.randomWord && <button onClick={this.randomWord}>Start</button>}
+        {this.state.randomWord && <form onSubmit={this.handleSubmit}>
+          <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Enter spelling" onChange={this.handleChange} value={this.state.spellingGuess} />
+          <input type="submit" value="Done" />
+        </form>}
+        {this.state.randomWord && <button onClick={() => this.speak(this.state.randomWord)}>Repeat word</button>}<br />
+        {this.state.previousWord && this.state.isCorrect && <h1 className="correct">Correct!</h1>}
+        {this.state.previousWord && !this.state.isCorrect && <h1 className="incorrect">Incorrect!</h1>}
+        {this.state.previousWord && <h3>Correct spelling: <strong>{this.state.previousWord}</strong></h3>}
+      </div>
     );
   }
 }
