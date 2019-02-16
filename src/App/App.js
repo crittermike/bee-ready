@@ -50,7 +50,13 @@ class App extends Component {
 
   speak(text) {
     this.msg.text = text;
-    window.speechSynthesis.speak(this.msg);
+    try {
+      require(`../../public/recordings/${text}.m4a`);
+      const audio = new Audio(`recordings/${text}.m4a`);
+      audio.play();
+    } catch (err) {
+      window.speechSynthesis.speak(this.msg);
+    }
   }
 
   render() {
@@ -58,7 +64,7 @@ class App extends Component {
       <div className="app">
         {!this.state.randomWord && <button onClick={this.randomWord}>Start</button>}
         {this.state.randomWord && <form onSubmit={this.handleSubmit}>
-          <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Enter spelling" onChange={this.handleChange} value={this.state.spellingGuess} />
+          <input type="text" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" placeholder="Enter spelling" onChange={this.handleChange} value={this.state.spellingGuess} />
           <input type="submit" value="Done" />
         </form>}
         {this.state.randomWord && <button onClick={() => this.speak(this.state.randomWord)}>Repeat word</button>}<br />
